@@ -7,5 +7,22 @@
 
 import Foundation
 
-print("Hello, World!")
+enum Color {
+    case green, red, black
+}
 
+class Car {
+    let color: Color
+    let wheels: Int
+    let km: Int
+    
+    
+    init(color: Color, wheels: Int, km: Int) {
+        self.color = color
+        self.wheels = wheels
+        self.km = km
+    }
+    func printCar() {
+        print(color, wheels, km)
+    }
+}
