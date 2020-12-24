@@ -8,10 +8,10 @@
 import Foundation
 
 enum Color {
-    case green, red, black
+    case green, red, black, white
 }
 enum Clierence {
-    case low, high
+    case low, high, normal
 }
 
 enum WindowState{
@@ -75,4 +75,13 @@ class SportCar: Car {
         self.windowState = .open
     }
 }
+var normalCar1 = Car(brand: "Volkswagen", color: .white, wheels: 17, km: 180_000)
+var normalCar2 = Car(brand: "Opel", color: .green, wheels: 16, km: 199_000)
+
+var truck1 = TrunkCar(brand: "Scania", color: .red, wheels: 24, km: 250_000, capacity: 150_000, clierence: .high, trunkState: .empty)
+var truck2 = TrunkCar(brand: "Volvo", color: .green, wheels: 23, km: 190_000, capacity: 175_000, clierence: .high, trunkState: .half)
+
+var car1 = SportCar(brand: "Ferrari", color: .red, wheels: 20, km: 20_000, speed: 350, clierence: .low, windowState: .close)
+var car2 = SportCar(brand: "Lamborgini", color: .black, wheels: 21, km: 95_000, speed: 370, clierence: .low, windowState: .open)
+
 
