@@ -52,6 +52,12 @@ class TrunkCar: Car {
         self.trunkState = trunkState
         super.init(brand: brand, color: color, wheels: wheels, km: km)
     }
+    
+    override func printCar() {
+        super.printCar()
+        self.trunkState = .full
+        
+    }
 }
 
 class SportCar: Car {
@@ -64,4 +70,9 @@ class SportCar: Car {
         self.windowState = windowState
         super.init(brand: brand, color: color, wheels: wheels, km: km)
     }
+    override func printCar() {
+        super.printCar()
+        self.windowState = .open
+    }
 }
+
