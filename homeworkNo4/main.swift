@@ -14,6 +14,15 @@ enum Clierence {
     case low, high
 }
 
+enum WindowState{
+    case open, close
+}
+
+enum TrunkState {
+    case full, half, empty
+}
+
+
 class Car {
     var brand: String
     let color: Color
@@ -36,9 +45,11 @@ class Car {
 class TrunkCar: Car {
     let capacity: Int
     let clierence: Clierence
-    init(brand: String, color: Color, wheels: Int, km: Int, capacity: Int, clierence: Clierence){
+    var trunkState: TrunkState
+    init(brand: String, color: Color, wheels: Int, km: Int, capacity: Int, clierence: Clierence, trunkState: TrunkState){
         self.capacity = capacity
         self.clierence = clierence
+        self.trunkState = trunkState
         super.init(brand: brand, color: color, wheels: wheels, km: km)
     }
 }
@@ -46,9 +57,11 @@ class TrunkCar: Car {
 class SportCar: Car {
     let speed: Int
     let clierence: Clierence
-    init(brand: String, color: Color, wheels: Int, km: Int, speed: Int, clierence: Clierence) {
+    var windowState: WindowState
+    init(brand: String, color: Color, wheels: Int, km: Int, speed: Int, clierence: Clierence, windowState: WindowState) {
         self.speed = speed
         self.clierence = clierence
+        self.windowState = windowState
         super.init(brand: brand, color: color, wheels: wheels, km: km)
     }
 }
