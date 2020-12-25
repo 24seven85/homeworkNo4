@@ -55,8 +55,17 @@ class TrunkCar: Car {
     
     override func printCar() {
         super.printCar()
-        self.trunkState = .full
         
+        if trunkState == .empty {
+            self.trunkState = .full
+            print("Потребовалась полная загрузка")
+        } else if trunkState == .half {
+            self.trunkState = .full
+            print("Требовалась догрузка")
+        } else if trunkState == .full {
+            print("Загрузка не требуется")
+        }
+    
     }
 }
 
@@ -72,7 +81,13 @@ class SportCar: Car {
     }
     override func printCar() {
         super.printCar()
-        self.windowState = .open
+        
+        if windowState == .close {
+            print("Окна закрыты")
+        } else if windowState == .open {
+            self.windowState = .close
+            print("Закрываем окна")
+        }
     }
 }
 var normalCar1 = Car(brand: "Volkswagen", color: .white, wheels: 17, km: 180_000)
@@ -82,6 +97,11 @@ var truck1 = TrunkCar(brand: "Scania", color: .red, wheels: 24, km: 250_000, cap
 var truck2 = TrunkCar(brand: "Volvo", color: .green, wheels: 23, km: 190_000, capacity: 175_000, clierence: .high, trunkState: .half)
 
 var car1 = SportCar(brand: "Ferrari", color: .red, wheels: 20, km: 20_000, speed: 350, clierence: .low, windowState: .close)
-var car2 = SportCar(brand: "Lamborgini", color: .black, wheels: 21, km: 95_000, speed: 370, clierence: .low, windowState: .open)
+var car2 = SportCar(brand: "Lamborgini", color: .black, wheels: 21, km: 95_000, speed: 370, clierence: .low, windowState: .close)
+    
 
+print("Первый грузовик: \(truck1.brand), загруженность: \(truck1.trunkState)")
+truck1.printCar()
 
+print("\(car2.brand), цвет: \(car1.color), колеса: \(car2.wheels), окна: \(car2.windowState)")
+car2.printCar()
